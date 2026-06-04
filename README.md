@@ -1,6 +1,7 @@
 # 500LinesCode
 ## 500 Lines of code with explanation has been added.
 
+```php
 <?php
 
 /**
@@ -799,3 +800,4 @@ function getOptions($category)
   }
   return $options;
 }
+```
