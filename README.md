@@ -1,5 +1,83 @@
-# 500LinesCode
-## 500 Lines of code with explanation has been added.
+# 500 Lines of Code in Drupal
+
+## About this repository
+
+This is a personal learning and documentation repository for exploring Drupal development through a substantial, annotated code example. The current notes focus on custom behavior for an admissions workflow, including entity hooks, access checks, forms, Views, email, configuration, and redirects.
+
+The phrase “500 Lines of Code” describes the learning format: study a focused piece of code and its explanations to understand how Drupal concepts work together. The example currently included is longer than 500 lines, so the title should be read as the project’s learning theme rather than an exact line count.
+
+## Learning objectives
+
+By working through the example, you can:
+
+- Recognize common Drupal hook patterns in a custom module.
+- Follow how content entities and entity reference fields are read and updated.
+- See how configuration values are exposed to rendered output.
+- Understand how form alterations, access callbacks, and Views form alterations shape a workflow.
+- Trace how a custom mail hook and mail service are used in an admissions process.
+- Practice reading procedural Drupal code and its dependencies.
+
+## Topics covered
+
+- Preprocess hooks and cacheable dependencies
+- Entity insert hooks and node entity storage
+- Database API queries
+- Entity fields and references
+- Email parameters, templates, and logging
+- Views pre-render and exposed form alterations
+- Entity create access and node view access
+- Form alterations, entity builders, and submit handlers
+- Redirect responses, URL query parameters, and generated session strings
+- PHP namespaces, arrays, conditionals, loops, and functions
+
+## Learning path
+
+The repository currently contains one integrated example rather than a sequence of standalone lessons. A useful reading order is:
+
+1. Review the imports and `admissions_preprocess()` function to see how configuration is passed to render variables.
+2. Read `admissions_entity_insert()` in sections: entity references, referee email handling, and log entities.
+3. Continue through the mail, Views, access, and form hooks to see how the workflow is customized at different Drupal extension points.
+4. Finish with the helper functions for random strings, redirects, and exposed filter options.
+5. Revisit the complete flow and identify which values come from configuration, request parameters, entity fields, and the current user.
+
+## Repository structure
+
+| Path | Contents |
+| --- | --- |
+| [`README.md`](README.md) | Learning guide and annotated admissions workflow example |
+
+There are no separate Markdown topic files in the repository at present. The topic links below point to sections in this document.
+
+## Topics in the example
+
+- [Preprocess and entity insert hooks](#annotated-drupal-example)
+- [Mail and workflow handling](#annotated-drupal-example)
+- [Views, access, and forms](#annotated-drupal-example)
+- [Helper functions](#annotated-drupal-example)
+
+## Prerequisites
+
+You will get the most from these notes if you have basic familiarity with PHP syntax, Drupal content types and fields, and the purpose of custom modules. The example uses Drupal APIs and site-specific bundles, fields, configuration names, and mail templates; those names belong to the example and are not general Drupal defaults.
+
+## Drupal and PHP concepts in this repository
+
+The code demonstrates procedural hooks in a custom module, calls through Drupal’s service container and entity API, database queries, field access, access results, Form API alterations, Views integration, and PHP control flow. It is an annotated learning example, not a complete installation guide or a standalone Drupal project.
+
+## How to use these notes
+
+Read the explanations alongside the code rather than treating the example as a copy-and-paste module. Follow a value from its source to its use, and look up the relevant hook or service in the Drupal version used by your own site before adapting site-specific code.
+
+## Useful commands
+
+No Drush, Composer, or other command-line examples are present in the current notes. The repository currently documents code rather than setup or runtime commands.
+
+## Progress
+
+The repository contains one integrated admissions workflow example. No lesson checklist or explicit completion status is recorded, so further learning progress cannot be determined from the files alone.
+
+## Annotated Drupal example
+
+The PHP example below brings together the topics listed above. Its comments describe the original workflow and the purpose of individual sections.
 
 ```php
 <?php
